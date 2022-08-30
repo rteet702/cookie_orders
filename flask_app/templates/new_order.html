@@ -10,24 +10,31 @@
 <body>
     <div class="container">
         <h1 class="my-5">Submit a new Order</h1>
+        {% with messages = get_flashed_messages() %}     <!-- declare a variable called messages -->
+            {% if messages %}                            <!-- check if there are any messages -->
+                {% for message in messages %}            <!-- loop through the messages -->
+                    <p class="fs-3 text-danger">{{message}}</p>                   <!-- display each message in a paragraph tag -->
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <div class="row">
             <form action="/cookies/placeorder" method="post">
                 <div class="row mb-3">
                     <label for="order_name" class="col-sm-2 col-form-label">Name:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="order_name" required>
+                        <input type="text" class="form-control" name="order_name" id="order_name" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="cookie_type" class="col-sm-2 col-form-label">Cookie Type:</label>
                     <div class="col-sm-8">
-                        <input type="text" class="form-control" id="cookie_type" required>
+                        <input type="text" class="form-control" name="cookie_type" id="cookie_type" required>
                     </div>
                 </div>
                 <div class="row mb-3">
                     <label for="number_of_boxes" class="col-sm-2 col-form-label">Number of Boxes:</label>
                     <div class="col-sm-4">
-                        <input type="number" class="form-control" id="number_of_boxes" value="1" required>
+                        <input type="number" class="form-control" name="number_of_boxes" id="number_of_boxes" value="1" required>
                     </div>
                 </div>
                 <button type="submit" class="btn btn-primary">Place Order</button>

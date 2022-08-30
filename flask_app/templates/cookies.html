@@ -30,7 +30,7 @@
                         <td>{{ order.name }}</td>
                         <td>{{ order.cookie_type }}</td>
                         <td>{{ order.number_of_boxes }}</td>
-                        <td><a href="#">Edit</a></td>
+                        <td><a href="/cookies/edit/{{ order.id }}">Edit</a></td>
                     </tr>
                     {% endfor %}
                 </tbody>
