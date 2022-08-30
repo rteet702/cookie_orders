@@ -9,10 +9,32 @@
 </head>
 <body>
     <div class="container">
-        <h1>Cookie Orders</h1>
-        <div class="row d-flex align-items-center justify-content-between">
+        <h1 class="my-5">Cookie Orders</h1>
+        <div class="d-flex align-items-center justify-content-between">
             <p>All Orders:</p>
-            <p><a href="#">+ New Order</a></p>
+            <p><a href="/cookies/new">+ New Order</a></p>
+        </div>
+        <div class="row">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Customer Name</th>
+                        <th scope="col">Cookie Type</th>
+                        <th scope="col">Number of Boxes</th>
+                        <th scope="col">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders: %}
+                    <tr>
+                        <td>{{ order.name }}</td>
+                        <td>{{ order.cookie_type }}</td>
+                        <td>{{ order.number_of_boxes }}</td>
+                        <td><a href="#">Edit</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </body>
